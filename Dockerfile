@@ -3,7 +3,7 @@ FROM java:8-jre-alpine
 MAINTAINER Jan Ehrhardt <jan.ehrhardt@gmail.com>
 
 # Ensure bash is available
-RUN apk add --update bash
+RUN apk add --update bash curl
 
 # Install Kafka (includes Zookeeper)
 RUN mkdir /opt
