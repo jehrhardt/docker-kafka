@@ -7,8 +7,7 @@ RUN apk add --update bash
 
 # Install Kafka (includes Zookeeper)
 RUN mkdir /opt
-ADD http://ftp.halifax.rwth-aachen.de/apache/kafka/0.9.0.1/kafka_2.11-0.9.0.1.tgz kafka.tgz
-RUN tar xfz kafka.tgz -C /opt
+RUN curl -s http://ftp.halifax.rwth-aachen.de/apache/kafka/0.9.0.1/kafka_2.11-0.9.0.1.tgz | tar xvz -C /opt
 
 # Add executables for Kafka and Zookeeper
 ADD kafka /usr/local/bin/kafka
