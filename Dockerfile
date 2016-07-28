@@ -2,12 +2,16 @@ FROM java:8-jre-alpine
 
 MAINTAINER Jan Ehrhardt <jan.ehrhardt@gmail.com>
 
-# Ensure bash is available
+# Ensure bash and curl are available
 RUN apk add --update bash curl
+
+# Set environment
+ENV KAFKA_VERSION=0.10.0.0
+ENV KAFKA_HOME=/opt/kafka_2.11-$KAFKA_VERSION
 
 # Install Kafka (includes Zookeeper)
 RUN mkdir /opt
-RUN curl -s http://ftp.halifax.rwth-aachen.de/apache/kafka/0.9.0.1/kafka_2.11-0.9.0.1.tgz | tar xvz -C /opt
+RUN curl -s http://ftp.halifax.rwth-aachen.de/apache/kafka/$KAFKA_VERSION/kafka_2.11-$KAFKA_VERSION.tgz | tar xvz -C /opt
 
 # Add executables for Kafka and Zookeeper
 ADD kafka /usr/local/bin/kafka
