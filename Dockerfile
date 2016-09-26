@@ -1,4 +1,4 @@
-FROM java:8-jre-alpine
+FROM openjdk:jre-alpine
 
 MAINTAINER Jan Ehrhardt <jan.ehrhardt@gmail.com>
 
